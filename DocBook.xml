@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="styles.css"?>
+<book xml:id="simple_book" xmlns="http://docbook.org/ns/docbook" version="5.0">
+    <info><title>Документация к проекту "Chords Lib"</title>
+    <author><personname><firstname>Никита</firstname>
+        <surname>Полудённый</surname></personname></author>
+    <copyright><year>2018</year><holder>Никита Полудённый</holder></copyright></info>
+    <preface><title>Преамбула</title><address>nik.poludennyy@mail.ru</address></preface>
+    <chapter xml:id="chapter_1">
+        <title>Описание продукта</title>
+		<para>Данное ПО представляет собой библиотеку простых аккордов с аппликатурой для гитары.</para>
+		<para>Помимо аппликатуры так же имеется возможность прослушать звучание аккорда.</para>
+    </chapter>
+    <chapter xml:id="chapter_2">
+        <title>Управление</title>
+        <para>Выбор аккорда производится из списка в правой части страницы.</para>
+        <para>Предоставлен выбор минорных и мажорных аккордов с разницей в один полутон.</para>
+        <para>При выборе нужного из списка аккорда отображается его аппликатура и вопроизводится звучание.</para>
+    </chapter>
+    <chapter xml:id="chapter_3">
+        <title>Сценарии</title>
+        <para>У приложения одна функция: отображать аппликатуру аккорда и демонстрировать звучание</para>
+        <section>
+            <title>Сценарий</title>
+            <example><title>Демонстрация аппликатуры</title>
+                <programlisting>
+				<![CDATA[ 
+				javascript
+                    $(document).ready(function(){
+    $('a').click(function(e){
+        e.preventDefault();
+		var path_picture = $(this).data('arg1');
+		document.getElementById("pic").src = path_picture;
+	});
+			]]>
+            </programlisting>
+			</example>
+            <example><title>Демонстрация звучания</title>
+                <programlisting>
+                    <![CDATA[ 
+        		var path_music1 = $(this).data('arg2');
+		var path_music2 = $(this).data('arg3');
+		var path_music3 = $(this).data('arg4');
+		var path_music4 = $(this).data('arg5');
+		var path_music5 = $(this).data('arg6');
+		var path_music6 = $(this).data('arg7');
+		play_sound(path_music1);
+		play_sound(path_music2);
+		play_sound(path_music3);
+		play_sound(path_music4);
+		play_sound(path_music5);
+		play_sound(path_music6);
+		
+		function play_sound(path_m){
+	    var snd = new Audio(path_m);
+	    snd.preload = "auto";
+	    snd.play();
+	    }
+        }]]>
+            </programlisting>
+			</example>
+    </section>
+    </chapter>
+</book>
