@@ -19,10 +19,9 @@
     </chapter>
     <chapter xml:id="chapter_3">
         <title>Сценарии</title>
-        <para>У приложения одна функция: отображать аппликатуру аккорда и демонстрировать звучание</para>
         <section>
-            <title>Сценарий</title>
-            <example><title>Демонстрация аппликатуры</title>
+            <title>Сценарий 1: Chords lib</title>
+            <example><title>Демонстрация аппликатуры и звучания аккордов</title>
                 <programlisting>
 				<![CDATA[ 
 				javascript
@@ -30,33 +29,70 @@
     $('a').click(function(e){
         e.preventDefault();
 		var path_picture = $(this).data('arg1');
-		document.getElementById("pic").src = path_picture;
-	});
-			]]>
-            </programlisting>
-			</example>
-            <example><title>Демонстрация звучания</title>
-                <programlisting>
-                    <![CDATA[ 
-        		var path_music1 = $(this).data('arg2');
+		var path_music1 = $(this).data('arg2');
 		var path_music2 = $(this).data('arg3');
 		var path_music3 = $(this).data('arg4');
 		var path_music4 = $(this).data('arg5');
 		var path_music5 = $(this).data('arg6');
 		var path_music6 = $(this).data('arg7');
+		document.getElementById("pic").src = path_picture;
 		play_sound(path_music1);
 		play_sound(path_music2);
 		play_sound(path_music3);
 		play_sound(path_music4);
 		play_sound(path_music5);
 		play_sound(path_music6);
-		
-		function play_sound(path_m){
+	});
+	
+	function play_sound(path_m){
 	    var snd = new Audio(path_m);
 	    snd.preload = "auto";
 	    snd.play();
-	    }
+	}
+			]]>
+            </programlisting>
+			</example>
+			<title>Сценарий 2: Solo mode</title>
+            <example><title>Эмуляция гитарного грифа</title>
+                <programlisting>
+                    <![CDATA[ 
+					javascript
+        		$(document).ready(function(){
+    $('button').click(function(e){
+        e.preventDefault();
+		var path_music = $(this).data('arg');
+		play_sound(path_music);
+	});
+
+	function play_sound(path_m){
+	    var snd = new Audio(path_m);
+	    snd.preload = "auto";
+	    snd.play();
+	}
+
+    });
         }]]>
+            </programlisting>
+			</example>
+			<title>Сценарий 3: About</title>
+            <example><title>Описание продукта</title>
+			<programlisting>
+                    <![CDATA[ 
+			<input type="button" value="О программе" onClick='location.href="About.html"'>
+			
+			<head>
+    <meta charset="utf-8">
+    </head>
+    <title>Описание ПО</title>
+    <h3>О создателе</h3>
+    <p>Полудённый Никита Игоревич</p>
+    <p>ДонНТУ, группа ПИ-15Б</p>
+    <h3>О продукте</h3>
+    <p>Продукт представляет простейшую библиотеку аккордов и нот на гитарном грифе.</p>
+    <p>Режим "Chords lib" представляет собой библиотеку простейших аккордов, демонстрируя аппликатуру и звучания каждого аккорда из списка.</p>
+    <p>Режим "Solo mode" представляет собой эмуляцию гитарного грифа, и воспроизводит звуки 6-струнной гитары (до 17-го лада) в стандартном строе (E A D G H e).</p>
+    <input type="button" value="Назад" onClick='location.href="Index.html"'>
+			}]]>
             </programlisting>
 			</example>
     </section>
