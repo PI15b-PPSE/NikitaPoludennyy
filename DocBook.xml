@@ -1,29 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/css" href="styles.css"?>
-<book xml:id="simple_book" xmlns="http://docbook.org/ns/docbook" version="5.0">
-    <info><title>Документация к проекту "Chords Lib"</title>
-    <author><personname><firstname>Никита</firstname>
-        <surname>Полудённый</surname></personname></author>
-    <copyright><year>2018</year><holder>Никита Полудённый</holder></copyright></info>
-    <preface><title>Преамбула</title><address>nik.poludennyy@mail.ru</address></preface>
-    <chapter xml:id="chapter_1">
-        <title>Описание продукта</title>
+<book xml:id="simple_book"
+	xmlns="http://docbook.org/ns/docbook" version="5.0">
+	<info>
+		<title>Документация к проекту "Chords Lib"</title>
+		<author>
+			<personname>
+				<firstname>Никита</firstname>
+				<surname>Полудённый</surname>
+			</personname>
+		</author>
+		<copyright>
+			<year>2018</year>
+			<holder>Никита Полудённый</holder>
+		</copyright>
+	</info>
+	<preface>
+		<title>Преамбула</title>
+		<address>nik.poludennyy@mail.ru</address>
+	</preface>
+	<chapter xml:id="chapter_1">
+		<title>Описание продукта</title>
 		<para>Данное ПО представляет собой библиотеку простых аккордов с аппликатурой для гитары.</para>
 		<para>Помимо аппликатуры так же имеется возможность прослушать звучание аккорда.</para>
-    </chapter>
-    <chapter xml:id="chapter_2">
-        <title>Управление</title>
-        <para>Выбор аккорда производится из списка в правой части страницы.</para>
-        <para>Предоставлен выбор минорных и мажорных аккордов с разницей в один полутон.</para>
-        <para>При выборе нужного из списка аккорда отображается его аппликатура и вопроизводится звучание.</para>
-    </chapter>
-    <chapter xml:id="chapter_3">
-        <title>Сценарии</title>
-        <section>
-            <title>Сценарий 1: Chords lib</title>
-            <example><title>Демонстрация аппликатуры и звучания аккордов</title>
-                <programlisting>
-				<![CDATA[ 
+	</chapter>
+	<chapter xml:id="chapter_2">
+		<title>Управление</title>
+		<para>Выбор аккорда производится из списка в правой части страницы.</para>
+		<para>Предоставлен выбор минорных и мажорных аккордов с разницей в один полутон.</para>
+		<para>При выборе нужного из списка аккорда отображается его аппликатура и вопроизводится звучание.</para>
+	</chapter>
+	<chapter xml:id="chapter_3">
+		<title>Сценарии</title>
+		<section>
+			<title>Сценарий 1: Chords lib</title>
+			<para>В данном режиме пользователю предлагается выбрать аккорд из списка для демонстрации звучания и изображения аппликатуры.</para>
+			<example>
+				<title>Демонстрация аппликатуры и звучания аккордов</title>
+				<programlisting>
+					<![CDATA[ 
 				javascript
                     $(document).ready(function(){
     $('a').click(function(e){
@@ -50,12 +65,14 @@
 	    snd.play();
 	}
 			]]>
-            </programlisting>
+				</programlisting>
 			</example>
 			<title>Сценарий 2: Solo mode</title>
-            <example><title>Эмуляция гитарного грифа</title>
-                <programlisting>
-                    <![CDATA[ 
+			<para>В данном режиме пользователю предлагается прослушать звучание нот, расположенных на гитарном грифе в стандартном строе до 17-го лада.</para>
+			<example>
+				<title>Эмуляция гитарного грифа</title>
+				<programlisting>
+					<![CDATA[ 
 					javascript
         		$(document).ready(function(){
     $('button').click(function(e){
@@ -63,38 +80,24 @@
 		var path_music = $(this).data('arg');
 		play_sound(path_music);
 	});
-
 	function play_sound(path_m){
 	    var snd = new Audio(path_m);
 	    snd.preload = "auto";
 	    snd.play();
 	}
-
     });
         }]]>
-            </programlisting>
+				</programlisting>
 			</example>
 			<title>Сценарий 3: About</title>
-            <example><title>Описание продукта</title>
-			<programlisting>
-                    <![CDATA[ 
-			<input type="button" value="О программе" onClick='location.href="About.html"'>
-			
-			<head>
-    <meta charset="utf-8">
-    </head>
-    <title>Описание ПО</title>
-    <h3>О создателе</h3>
-    <p>Полудённый Никита Игоревич</p>
-    <p>ДонНТУ, группа ПИ-15Б</p>
-    <h3>О продукте</h3>
-    <p>Продукт представляет простейшую библиотеку аккордов и нот на гитарном грифе.</p>
-    <p>Режим "Chords lib" представляет собой библиотеку простейших аккордов, демонстрируя аппликатуру и звучания каждого аккорда из списка.</p>
-    <p>Режим "Solo mode" представляет собой эмуляцию гитарного грифа, и воспроизводит звуки 6-струнной гитары (до 17-го лада) в стандартном строе (E A D G H e).</p>
-    <input type="button" value="Назад" onClick='location.href="Index.html"'>
+			<example>
+				<title>Описание продукта</title>
+				<programlisting>
+					<![CDATA[ 
+			<input type="button" value="О программе" onClick='location.href="About.html"'><head><meta charset="utf-8"></head><title>Описание ПО</title><h3>О создателе</h3><p>Полудённый Никита Игоревич</p><p>ДонНТУ, группа ПИ-15Б</p><h3>О продукте</h3><p>Продукт представляет простейшую библиотеку аккордов и нот на гитарном грифе.</p><p>Режим "Chords lib" представляет собой библиотеку простейших аккордов, демонстрируя аппликатуру и звучания каждого аккорда из списка.</p><p>Режим "Solo mode" представляет собой эмуляцию гитарного грифа, и воспроизводит звуки 6-струнной гитары (до 17-го лада) в стандартном строе (E A D G H e).</p><input type="button" value="Назад" onClick='location.href="Index.html"'>
 			}]]>
-            </programlisting>
+				</programlisting>
 			</example>
-    </section>
-    </chapter>
+		</section>
+	</chapter>
 </book>
